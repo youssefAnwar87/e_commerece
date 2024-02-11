@@ -1,4 +1,5 @@
 import 'package:e_commerece/data/model/response/RegisterResponse.dart';
+import 'package:e_commerece/domain/entities/AuthReusltEntity.dart';
 
 abstract class RegisterStates{}
  class RegisterLoadingState extends RegisterStates{
@@ -11,7 +12,7 @@ abstract class RegisterStates{}
    RegisterErrorState({required this.ErrorMessage});
  }
  class RegisterSuccuessState extends RegisterStates{
-  RegisterResponse response;
+  AuthresultEntity response;
   RegisterSuccuessState({required this.response});
 
  }

@@ -1,3 +1,4 @@
+import 'package:e_commerece/domain/useCase/RegisterUseCase.dart';
 import 'package:e_commerece/repository/auth_repository/repository/auth_repository_impl.dart';
 import 'package:e_commerece/ui/auth/register/cubit/register_screen_view_model.dart';
 import 'package:e_commerece/ui/auth/register/cubit/states.dart';
@@ -18,7 +19,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  var viewModel = RegisterScreenViewModel(repositoryContract: injectAuthRepository());
+  var viewModel = RegisterScreenViewModel(registerUseCase: injectRegisterUseCase());
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
             DialogUtils.showErrorDialog(context, state.ErrorMessage??"","Error");
           }else if(state is RegisterSuccuessState ){
             DialogUtils.hideLoading(context);
-
-            DialogUtils.showErrorDialog(context, state.response.user?.name??"","success");
+            print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+            DialogUtils.showErrorDialog(context, state.response.userEntity?.name??"","success");
           }
 
         },
